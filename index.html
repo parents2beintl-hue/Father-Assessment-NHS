@@ -239,8 +239,7 @@ h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; line-heig
   </div>
 
   <!-- ── SCREEN CONSENT: OPENING CONSENT ──────────────────────────── -->
-  <!-- DEVELOPER NOTE: This screen fires before the context questions  -->
-  <!-- ref_type URL param controls opening line variant.               -->
+<!-- ref_type URL param controls opening line variant.               -->
   <!-- Values: clinician, partner, (blank = default)                   -->
   <!-- Father must select one option before Begin button is active.    -->
   <!-- Store selection in consentChoice variable and localStorage.     -->
@@ -440,8 +439,7 @@ h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; line-heig
   </div>
 
   <!-- ── SCREEN END CONSENT: REVIEW AND CHANGE ────────────────────── -->
-  <!-- DEVELOPER NOTE: This screen fires after all 13 questions and    -->
-  <!-- context questions are complete, before results are shown.       -->
+<!-- context questions are complete, before results are shown.       -->
   <!-- Display the father's opening consent choice back to him.        -->
   <!-- He must select one option to activate Show me my results.       -->
   <!-- On tap of Show me my results:                                   -->
@@ -492,8 +490,7 @@ h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; line-heig
   </div>
 
   <!-- ── SCREEN SAFETY: BAND C ACKNOWLEDGEMENT ────────────────────── -->
-  <!-- DEVELOPER NOTE: This screen fires ONLY when score >= 27.        -->
-  <!-- It fires regardless of which consent option was selected.       -->
+<!-- It fires regardless of which consent option was selected.       -->
   <!-- The Continue button is inactive until the ack tick is selected. -->
   <!-- Log safety screen load as a system event (no personal data).    -->
   <div class="screen" id="sSafety">
@@ -563,7 +560,6 @@ h2 { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; line-heig
 </div><!-- end .page -->
 
 <script>
-// ── QUESTIONS (unchanged from original) ──────────────────────────────
 const QS=[
   {t:"Over the past while, how easily have you been getting wound up or frustrated - by things that would not normally bother you that much?",s:"Think about small things - traffic, noise, a slow queue, a comment that landed wrong. These reactions are worth paying attention to.",a:["Fairly steady - not noticing much change in how things affect me","A bit more reactive than I would usually be - it is noticeable","Things have been getting to me in ways that feel disproportionate","I feel like I am constantly on edge - almost everything is triggering a reaction"]},
   {t:"Have you found yourself snapping at people, or feeling angry in a way that does not quite feel like you?",s:"This can show up as short temper, sarcasm, saying things you regret, or a low-level irritation that does not seem to switch off.",a:["Not particularly - my reactions have felt like my own","Occasionally - more short-tempered than I would normally be","Yes - it is happening regularly and I am aware of it","Yes - it is affecting the people around me and I am genuinely concerned"]},
@@ -580,20 +576,17 @@ const QS=[
   {t:"Have you had any thoughts - even passing ones - about not wanting to be here, disappearing, or that everyone would be better off without you?",s:"This is the hardest question and you do not have to answer it. But if these thoughts have been present - even briefly, even quietly - that is something that deserves care and support, not silence.",a:["No - those thoughts have not been present","A passing thought - it has crossed my mind but not stayed","More than occasionally - it comes up and it is something I am aware of","It is there and it feels serious - I need support with this"],sensitive:true}
 ];
 
-// ── STORAGE KEYS ──────────────────────────────────────────────────────
 const KS='p2bi-scores', KQ='p2bi-cq', KC='p2bi-ctx', KSC='p2bi-scr', KBD='p2bi-bd';
-const KCC='p2bi-consent-choice'; // opening consent choice
-const KCF='p2bi-consent-final';  // final consent choice after end review
+const KCC='p2bi-consent-choice';
+const KCF='p2bi-consent-final';
 
-// ── STATE ─────────────────────────────────────────────────────────────
 let scores = new Array(13).fill(null);
 let currentQ = 0;
 let totalScore = 0;
-let consentChoice = null;     // opening consent: 'A', 'B', or 'C'
-let finalConsent = null;      // end review consent: 'A', 'B', or 'C'
-let safetyAcked = false;      // Band C safety acknowledgement
+let consentChoice = null;
+let finalConsent = null;
+let safetyAcked = false;
 
-// ── THEME ─────────────────────────────────────────────────────────────
 (function(){
   const s = localStorage.getItem('p2bi-theme');
   const d = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -615,7 +608,6 @@ function updModeBtn(t){
   if(b) b.textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
 }
 
-// ── BOOKMARK BANNER ───────────────────────────────────────────────────
 function dismissBmark(){
   document.getElementById('bmarkBanner').style.display = 'none';
   localStorage.setItem(KBD,'1');
@@ -627,10 +619,6 @@ function dismissBmark(){
   }
 })();
 
-// ── URL PARAMETER: REF TYPE ───────────────────────────────────────────
-// DEVELOPER NOTE: Read ref_type from URL on page load.
-// Set the opening line of the consent screen accordingly.
-// Values: clinician, partner, (blank = default)
 (function(){
   const params = new URLSearchParams(window.location.search);
   const refType = params.get('ref_type') || 'default';
@@ -641,10 +629,8 @@ function dismissBmark(){
   } else if(refType === 'partner'){
     lineEl.textContent = "Someone close to you shared this because they care about how you're doing.";
   }
-  // default line already set in HTML
 })();
 
-// ── NAVIGATION ────────────────────────────────────────────────────────
 function go(n){
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   const target = typeof n === 'number' ? document.getElementById('s'+n) : document.getElementById(n);
@@ -661,7 +647,6 @@ function handleStart(){
   }
 }
 
-// ── OPENING CONSENT ───────────────────────────────────────────────────
 function pickConsent(choice, el){
   consentChoice = choice;
   localStorage.setItem(KCC, choice);
@@ -671,9 +656,7 @@ function pickConsent(choice, el){
   if(typeof gtag !== 'undefined') gtag('event','consent_opening_selected',{choice:choice});
 }
 
-// ── END CONSENT REVIEW ────────────────────────────────────────────────
 function showEndConsent(){
-  // Display the opening choice back to the father
   const choiceLabels = {
     'A': 'Share my results with the person who referred me',
     'B': 'Keep my results anonymous',
@@ -684,7 +667,6 @@ function showEndConsent(){
   const displayEl = document.getElementById('endConsentDisplayChoice');
   if(displayEl) displayEl.textContent = choiceLabels[saved] || 'Keep my results private';
 
-  // Pre-highlight the matching option visually (not pre-ticked - he must confirm)
   const optMap = {'A':'ecOptA','B':'ecOptB','C':'ecOptC'};
   const matchEl = document.getElementById(optMap[saved]);
   if(matchEl) matchEl.style.borderColor = 'var(--gold)';
@@ -706,10 +688,6 @@ function pickEndConsent(choice, el){
 function handleEndConsent(){
   if(!finalConsent) return;
 
-  // DEVELOPER NOTE:
-  // 1. Log consent change event - system event only, no personal data
-  //    Record: opening_choice, final_choice, changed (boolean)
-  //    POST to your backend endpoint e.g. /api/consent-event
   const changed = finalConsent !== consentChoice;
   if(typeof gtag !== 'undefined'){
     gtag('event','consent_finalised',{
@@ -718,20 +696,11 @@ function handleEndConsent(){
       changed: changed
     });
   }
-  // 2. Completion counter fires here - all tiers
-  //    POST to your backend endpoint e.g. /api/completion-count
-  //    Body: { timestamp: Date.now() } - no personal data
 
-  // 3. Commit assessment data per final consent
-  //    A: send score + band + refType to clinician endpoint
-  //    B: send score + band to anonymous aggregate endpoint
-  //    C: send nothing - completion counter already fired above
   localStorage.setItem(KCF, finalConsent);
 
-  // Calculate score now (needed for Band C check)
   totalScore = scores.reduce((a,b) => a + (b||0), 0);
 
-  // 4. Route: Band C goes to safety screen first
   if(totalScore >= 27){
     go('sSafety');
     if(typeof gtag !== 'undefined') gtag('event','safety_screen_shown',{score:totalScore});
@@ -740,7 +709,6 @@ function handleEndConsent(){
   }
 }
 
-// ── BAND C SAFETY ACKNOWLEDGEMENT ────────────────────────────────────
 function pickSafetyAck(){
   safetyAcked = !safetyAcked;
   const ack = document.getElementById('safetyAck');
@@ -758,7 +726,6 @@ function pickSafetyAck(){
   }
 }
 
-// ── SAVE AND LOAD ─────────────────────────────────────────────────────
 function loadSaved(){
   try{
     const ss = localStorage.getItem(KS);
@@ -806,7 +773,6 @@ function clearSaved(){
   });
 }
 
-// ── QUESTIONS ─────────────────────────────────────────────────────────
 function showQ(idx){
   const q = QS[idx];
   document.getElementById('qpf').style.width = (20 + (idx/13)*65) + '%';
@@ -849,14 +815,12 @@ function prevQ(){
   if(currentQ > 0){ currentQ--; saveSc(); showQ(currentQ); }
 }
 
-// ── BAND LOGIC (unchanged) ────────────────────────────────────────────
 function getBand(s){
   if(s <= 12) return{cls:'green',h:'You are holding on - and that matters',m:'What you have shared does not show the kind of patterns that indicate serious concern right now. That does not mean everything is easy or that what you are feeling is not real. It means that right now the signs are within a range where early awareness and support can keep things from building.',o:'You came here. You answered honestly. That is not nothing. The things that grow into something harder rarely announce themselves - which is exactly why what you did today matters.',cta:'light'};
   if(s <= 26) return{cls:'amber',h:'There is something here that deserves attention',m:'What you have shared points to a level of difficulty that is real, clinically significant, and worth taking seriously. This is not weakness. This is not just the pressure of new fatherhood. These are patterns that, if left unaddressed, tend to deepen.',o:'You do not have to be in crisis to deserve support. What you are feeling right now is exactly the point at which things can be turned around - with the right tools and the right conversation.',cta:'medium'};
   return{cls:'red',h:'What you are carrying is serious and you deserve support now',m:'What you have shared describes a significant level of difficulty. This is clinically meaningful. It is not something to push through alone or wait out. Getting the right support now - not later - is the most important thing you can do.',o:'You reached out by being here. That took something. The next step is one conversation - with your GP, with a health visitor, with the Samaritans. You do not need to have the words perfectly formed before you go.',cta:'urgent'};
 }
 
-// ── BUILD RESULT (unchanged from original) ────────────────────────────
 function buildResult(){
   totalScore = scores.reduce((a,b) => a + (b||0), 0);
   const band = getBand(totalScore);
@@ -894,25 +858,17 @@ function buildResult(){
   if(typeof gtag !== 'undefined') gtag('event','assessment_complete',{score:totalScore,band:band.cls});
 }
 
-// ── EMAIL CAPTURE ─────────────────────────────────────────────────────
-// DEVELOPER NOTE: The MailerLite API call must be moved to a backend
-// function (Netlify function or Cloudflare Worker) before launch.
-// The API key must NEVER sit in frontend HTML - it is visible to anyone
-// who opens browser developer tools on your site.
-// Replace the fetch below with a call to your backend endpoint e.g.:
-// fetch('/api/subscribe', { method:'POST', body: JSON.stringify({email, ...}) })
 function submitEmail(){
   const email = document.getElementById('emailIn').value.trim();
   if(!email || !email.includes('@')){
     document.getElementById('emailIn').style.borderColor = '#C62828';
     return;
   }
-  // REPLACE THIS WITH BACKEND CALL - see developer note above
   fetch('https://connect.mailerlite.com/api/subscribers',{
     method:'POST',
     headers:{
       'Content-Type':'application/json',
-      'Authorization':'Bearer YOUR_API_KEY_HERE' // MOVE TO BACKEND
+      'Authorization':'Bearer YOUR_API_KEY_HERE'
     },
     body: JSON.stringify({
       email: email,
@@ -950,7 +906,6 @@ function showRes(withEmail){
   if(typeof gtag !== 'undefined') gtag('event', withEmail ? 'email_captured' : 'email_skipped', {score:totalScore});
 }
 
-// ── INIT ──────────────────────────────────────────────────────────────
 loadSaved();
 </script>
 </body>
