@@ -17,23 +17,23 @@
 :root {
   --gold: #C9A84C; --gold-dark: #8B6914;
   --bg: #FFFFFF; --bg2: #F8F6F1; --bg3: #F0EDE6;
-  --text: #111111; --text2: #444444; --text3: #666666; --text4: #888888;
+  --text: #111111; --text2: #444444; --text3: #666666; --text4: #767676;
   --border: #DDDDDD; --border2: #CCCCCC;
-  --topbar-bg: #111111; --topbar-sub: #888888;
+  --topbar-bg: #111111; --topbar-sub: #767676;
   --promise-bg: #FDFBF6;
   --answer-bg: #FAFAFA; --answer-hover: #FDFBF6;
   --answer-picked-bg: #111111; --answer-picked-text: #FFFFFF;
   --rg-bg: #F7FBF7; --rg-bd: #2E7D32;
   --ra-bg: #FDFBF6; --ra-bd: #C9A84C;
   --rr-bg: #FFF5F5; --rr-bd: #C62828;
-  --email-bg: #111111; --email-text: #FFFFFF; --email-sub: #AAAAAA;
+  --email-bg: #111111; --email-text: #FFFFFF; --email-sub: #767676;
   --email-inp-bg: #1A1A1A; --email-inp-bd: #444444; --email-inp-text: #FFFFFF;
-  --footer-text: #AAAAAA;
+  --footer-text: #767676;
   --score-bd: #111111; --score-bg: #F8F6F1;
   --notice-bg: #FAFAFA; --next-bg: #FFFFFF;
   --flag-bg: #FFF8F0; --flag-bd: #C9A84C;
   --safe-bg: #FFF5F5; --safe-bd: #FFCDD2; --safe-text: #444444; --safe-link: #C62828;
-  --bmark-bg: #111111; --bmark-text: #FFFFFF; --bmark-sub: #AAAAAA;
+  --bmark-bg: #111111; --bmark-text: #FFFFFF; --bmark-sub: #767676;
   --ret-bg: #FDFBF6; --ret-bd: #C9A84C;
   --consent-border: #DDDDDD; --consent-picked: #111111; --consent-picked-text: #FFFFFF;
   --safety-bg: #FFF5F5; --safety-bd: #C62828;
@@ -51,7 +51,7 @@
   --rr-bg: #1F0F0F; --rr-bd: #EF5350;
   --email-bg: #1A1A1A; --email-text: #F0EDE6; --email-sub: #888888;
   --email-inp-bg: #111111; --email-inp-bd: #333333; --email-inp-text: #F0EDE6;
-  --footer-text: #555555;
+  --footer-text: #999999;
   --score-bd: #C9A84C; --score-bg: #1A1A1A;
   --notice-bg: #1A1A1A; --next-bg: #1A1A1A;
   --flag-bg: #1A1500; --flag-bd: #C9A84C;
@@ -67,7 +67,7 @@ html, body { background: var(--bg); color: var(--text); font-family: 'Montserrat
 .topbar-brand { font-family: 'Montserrat', sans-serif; font-size: 15px; color: var(--gold); text-decoration: none; }
 .topbar-right { display: flex; align-items: center; gap: 12px; }
 .topbar-tag { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--topbar-sub); }
-.mode-btn { background: transparent; border: 1px solid #444; color: #888; font-size: 11px; padding: 4px 10px; cursor: pointer; font-family: 'Montserrat', sans-serif; transition: all 0.2s; }
+.mode-btn { background: transparent; border: 1px solid #444; color: #767676; font-size: 11px; padding: 4px 10px; cursor: pointer; font-family: 'Montserrat', sans-serif; transition: all 0.2s; }
 .mode-btn:hover { border-color: var(--gold); color: var(--gold); }
 .bmark-banner { background: var(--bmark-bg); border-bottom: 2px solid var(--gold); padding: 0.9rem 1.4rem; }
 .bmark-inner { max-width: 620px; margin: 0 auto; display: flex; align-items: flex-start; gap: 0.9rem; }
@@ -147,8 +147,6 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
 .flag-card p { font-size: 13px; color: var(--text2); line-height: 1.6; }
 .page-footer { margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--border); font-size: 11px; color: var(--footer-text); line-height: 1.7; }
 .page-footer a { color: var(--footer-text); text-decoration: underline; }
-
-/* ── CONSENT SCREEN STYLES ────────────────────────────────────────── */
 .consent-intro { font-size: 15px; color: var(--text2); line-height: 1.75; margin-bottom: 1.4rem; }
 .consent-intro p { margin-bottom: 0.9rem; }
 .consent-intro p:last-child { margin-bottom: 0; }
@@ -162,12 +160,8 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
 .consent-opt-letter { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--text4); min-width: 20px; padding-top: 2px; }
 .consent-opt-text { font-size: 14px; color: var(--text2); line-height: 1.6; }
 .consent-footnote { font-size: 12px; color: var(--text4); line-height: 1.65; font-style: italic; margin-top: 0.8rem; }
-
-/* ── END CONSENT REVIEW STYLES ────────────────────────────────────── */
 .consent-review-choice { border-left: 3px solid var(--gold); padding: 0.9rem 1rem; margin: 1rem 0; background: var(--promise-bg); font-size: 14px; color: var(--text2); line-height: 1.6; }
 .consent-review-choice strong { color: var(--text); }
-
-/* ── BAND C SAFETY SCREEN STYLES ──────────────────────────────────── */
 .safety-screen { background: var(--safety-bg); border: 2px solid var(--safety-bd); padding: 1.4rem 1.6rem; margin: 1.4rem 0; }
 .safety-screen h2 { font-family: 'Montserrat', sans-serif; font-size: 20px; color: var(--text); margin-bottom: 0.8rem; }
 .safety-screen p { font-size: 14px; color: var(--safe-text); line-height: 1.7; margin-bottom: 0.8rem; }
@@ -179,59 +173,19 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
 .safety-ack-box { width: 18px; height: 18px; border: 1.5px solid var(--safety-bd); min-width: 18px; margin-top: 2px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: transparent; }
 .safety-ack.picked .safety-ack-box { background: var(--safety-bd); color: #FFFFFF; border-color: var(--safety-bd); }
 .safety-ack-text { font-size: 14px; color: var(--text2); line-height: 1.5; }
-
-
-/* ── ACCESSIBILITY ────────────────────────────────────────────────── */
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 0;
-  background: var(--gold);
-  color: #111111;
-  padding: 10px 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  z-index: 9999;
-  transition: top 0.2s;
-}
-.skip-link:focus {
-  top: 0;
-}
-.consent-option:focus,
-.answer:focus {
-  outline: 3px solid var(--gold);
-  outline-offset: 2px;
-}
-.btn:focus,
-.btn-dark:focus,
-.btn-gold:focus,
-.btn-back:focus,
-.mode-btn:focus {
-  outline: 3px solid var(--gold);
-  outline-offset: 2px;
-}
-.field-input:focus {
-  outline: 2px solid var(--gold);
-  outline-offset: 1px;
-}
+.skip-link { position: absolute; top: -100px; left: 0; background: var(--gold); color: #111111; padding: 10px 20px; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; z-index: 9999; transition: top 0.2s; }
+.skip-link:focus { top: 0; }
+.consent-option:focus, .answer:focus { outline: 3px solid var(--gold); outline-offset: 2px; }
+.btn:focus, .btn-dark:focus, .btn-gold:focus, .btn-back:focus, .mode-btn:focus { outline: 3px solid var(--gold); outline-offset: 2px; }
+.field-input:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
 @media (prefers-contrast: high) {
-  :root {
-    --gold: #7A5C00;
-    --border: #000000;
-    --text2: #000000;
-    --text3: #111111;
-  }
-  .answer, .consent-option {
-    border-width: 2px;
-  }
+  :root { --gold: #7A5C00; --border: #000000; --text2: #000000; --text3: #111111; }
+  .answer, .consent-option { border-width: 2px; }
 }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
   .progress-fill { transition: none !important; }
 }
-
 @media (max-width: 480px) {
   h1 { font-size: 24px; } h2 { font-size: 19px; } .q-text { font-size: 17px; }
   .field-row { grid-template-columns: 1fr; } .score-reveal-num { font-size: 52px; }
@@ -263,7 +217,6 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
 
 <div class="page" id="mainContent" role="main" aria-label="Paternal PPD Assessment">
 
-  <!-- ── SCREEN 0: LANDING ─────────────────────────────────────────── -->
   <div class="screen active" id="s0">
     <div class="section">
       <div class="ret-banner" id="retBanner">
@@ -291,11 +244,6 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
     </div>
   </div>
 
-  <!-- ── SCREEN CONSENT: OPENING CONSENT ──────────────────────────── -->
-<!-- ref_type URL param controls opening line variant.               -->
-  <!-- Values: clinician, partner, (blank = default)                   -->
-  <!-- Father must select one option before Begin button is active.    -->
-  <!-- Store selection in consentChoice variable and localStorage.     -->
   <div class="screen" id="sConsent">
     <div class="section">
       <div class="label-tag">Before you begin</div>
@@ -308,7 +256,6 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
         <p><strong>This is just for you.</strong></p>
         <p>Before you begin, please choose how you'd like your results handled.</p>
       </div>
-
       <div class="consent-options-label">Choose one option to continue</div>
       <div class="consent-options">
         <div class="consent-option" id="cOptA" onclick="pickConsent('A',this)" role="radio" aria-checked="false" aria-label="Option A: Share my results with the person who referred me" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){pickConsent('A',this);event.preventDefault();}">
@@ -331,7 +278,6 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
     </div>
   </div>
 
-  <!-- ── SCREEN 1: CONTEXT QUESTIONS ──────────────────────────────── -->
   <div class="screen" id="s1">
     <div class="progress-wrap">
       <div class="progress-track"><div class="progress-fill" style="width:8%"></div></div>
@@ -453,7 +399,6 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
     </div>
   </div>
 
-  <!-- ── SCREEN 2: PRE-ASSESSMENT BRIEFING ────────────────────────── -->
   <div class="screen" id="s2">
     <div class="progress-wrap">
       <div class="progress-track"><div class="progress-fill" style="width:18%"></div></div>
@@ -475,7 +420,6 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
     </div>
   </div>
 
-  <!-- ── SCREEN 3: QUESTIONS ───────────────────────────────────────── -->
   <div class="screen" id="s3">
     <div class="progress-wrap">
       <div class="progress-track"><div class="progress-fill" id="qpf" style="width:20%"></div></div>
@@ -501,12 +445,6 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
     </div>
   </div>
 
-  <!-- s4 removed - sleep, support and work fields moved to context questions page -->
-
-  <!-- ── SCREEN SAFETY: BAND C ACKNOWLEDGEMENT ────────────────────── -->
-<!-- It fires regardless of which consent option was selected.       -->
-  <!-- The Continue button is inactive until the ack tick is selected. -->
-  <!-- Log safety screen load as a system event (no personal data).    -->
   <div class="screen" id="sSafety">
     <div class="progress-wrap">
       <div class="progress-track"><div class="progress-fill" style="width:98%"></div></div>
@@ -520,22 +458,19 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
         <p>Your clinician is there to help you. Contact them as soon as you can - you do not need to explain everything before you go. Just tell them you are struggling and you need support.</p>
         <p>While you are waiting to speak to your clinician, please do not carry this alone.</p>
         <p class="crisis-line"><a href="tel:116123">Samaritans - 116 123</a> - free, 24 hours, no judgement, no pressure to say the right thing</p>
-        <p class="crisis-line"><a href="tel:08005858">CALM - 0800 58 58 58</a> - 6pm to midnight</p>
+        <p class="crisis-line"><a href="tel:08005858585">CALM - 0800 58 58 58</a> - 6pm to midnight</p>
         <p class="crisis-line">If you are in immediate danger, call <a href="tel:999">999</a>.</p>
-
         <div class="safety-ack" id="safetyAck" onclick="pickSafetyAck()">
           <div class="safety-ack-box" id="safetyAckBox">&#10003;</div>
           <div class="safety-ack-text">I have read the above and I understand support is available to me.</div>
         </div>
       </div>
-
       <div class="btn-row">
         <button class="btn btn-dark" id="safetyNextBtn" onclick="buildResult()" disabled>Continue to my results</button>
       </div>
     </div>
   </div>
 
-  <!-- ── SCREEN 5: RESULTS ─────────────────────────────────────────── -->
   <div class="screen" id="s5">
     <div class="progress-wrap">
       <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
@@ -548,8 +483,6 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
         <div class="score-reveal-label" id="rLabel">out of 39</div>
       </div>
       <div id="rBand"></div>
-
-      <!-- CONSENT REVIEW - sits directly under results, no separate screen -->
       <div id="consentReview" style="margin:1.4rem 0;border:1.5px solid var(--border);padding:1.2rem 1.4rem;background:var(--promise-bg);">
         <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dark);font-weight:600;margin-bottom:0.8rem;">Your privacy choice</div>
         <p id="consentReviewText" style="font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:1rem;"></p>
@@ -563,7 +496,6 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
         </div>
         <p style="font-size:12px;color:var(--text4);margin-top:0.8rem;font-style:italic;" id="consentReviewFooter"></p>
       </div>
-
       <div class="divider"></div>
       <div id="rFlags"></div>
       <div id="rSteps"></div>
@@ -585,7 +517,7 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
         <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
           <strong style="font-size:12px;color:var(--text3)">Accessibility</strong>
           <p style="margin-top:4px">Parents2Be International is committed to making this assessment accessible to every father who needs it. This platform supports screen readers, keyboard navigation, high contrast display, and reduced motion. Dark and light display modes are available using the toggle above.</p>
-          <p style="margin-top:6px">We are working toward full WCAG 2.1 AA compliance ahead of our public launch on 26 August 2026. A Welsh language version - <em>fersiwn Cymraeg</em> - is currently in development and will be available at launch.</p>
+          <p style="margin-top:6px">We are working toward full WCAG 2.2 AA compliance ahead of our public launch on 26 August 2026. A Welsh language version - <em>fersiwn Cymraeg</em> - is currently in development and will be available at launch.</p>
           <p style="margin-top:6px">If you need this assessment in an alternative format - including large print, audio, or BSL - please contact us at <a href="mailto:hello@parents2beintl.com">hello@parents2beintl.com</a> and we will make it available to you. Accessibility feedback is always welcome.</p>
         </div>
         <div style="margin-top:0.8rem"><a href="https://parents2beintl.com">Home</a> - <a href="https://parents2beintl.com/privacy">Privacy</a> - <a href="mailto:hello@parents2beintl.com">Accessibility</a></div>
@@ -593,7 +525,7 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
     </div>
   </div>
 
-</div><!-- end .page -->
+</div>
 
 <script>
 const QS=[
@@ -676,23 +608,13 @@ function go(n){
 }
 
 function handleStart(){
-  if(scores.some(s => s !== null)){
-    go(3);
-    showQ(currentQ);
-  } else {
-    go('sConsent');
-  }
+  if(scores.some(s => s !== null)){ go(3); showQ(currentQ); } else { go('sConsent'); }
 }
 
-function skipContext(){
-  go(2);
-}
+function skipContext(){ go(2); }
 
 function pickExpectant(val, el){
-  document.querySelectorAll('#expectantYes, #expectantNo').forEach(o => {
-    o.classList.remove('picked');
-    o.setAttribute('aria-checked','false');
-  });
+  document.querySelectorAll('#expectantYes, #expectantNo').forEach(o => { o.classList.remove('picked'); o.setAttribute('aria-checked','false'); });
   el.classList.add('picked');
   el.setAttribute('aria-checked','true');
   document.getElementById('expectantNote').style.display = val === 'yes' ? 'block' : 'none';
@@ -700,32 +622,22 @@ function pickExpectant(val, el){
   saveCtx();
 }
 
-function handleConsentNext(){
-  go(1);
-}
+function handleConsentNext(){ go(1); }
 
 function showOptCBanner(){
   const banner = document.getElementById('optCBanner');
-  if(banner){
-    banner.style.display = (consentChoice === 'B' || consentChoice === 'C') ? 'block' : 'none';
-  }
+  if(banner){ banner.style.display = (consentChoice === 'B' || consentChoice === 'C') ? 'block' : 'none'; }
   const sub = document.getElementById('journeySubtext');
   if(sub){
-    if(consentChoice === 'A'){
-      sub.textContent = 'This helps us understand where you are in your first year and make your results accurate for you.';
-    } else {
-      sub.textContent = 'This helps tailor results for fathers who choose to share. You can still complete the assessment without answering this.';
-    }
+    if(consentChoice === 'A'){ sub.textContent = 'This helps us understand where you are in your first year and make your results accurate for you.'; }
+    else { sub.textContent = 'This helps tailor results for fathers who choose to share. You can still complete the assessment without answering this.'; }
   }
 }
 
 function pickConsent(choice, el){
   consentChoice = choice;
   localStorage.setItem(KCC, choice);
-  document.querySelectorAll('#sConsent .consent-option').forEach(o => {
-    o.classList.remove('picked');
-    o.setAttribute('aria-checked','false');
-  });
+  document.querySelectorAll('#sConsent .consent-option').forEach(o => { o.classList.remove('picked'); o.setAttribute('aria-checked','false'); });
   el.classList.add('picked');
   el.setAttribute('aria-checked','true');
   document.getElementById('consentNextBtn').disabled = false;
@@ -734,61 +646,29 @@ function pickConsent(choice, el){
 }
 
 function handleContextContinue(){
-  if(contextReturnMode){
-    contextReturnMode = false;
-    if(totalScore >= 27){
-      go('sSafety');
-    } else {
-      buildResult();
-    }
-  } else {
-    showEndConsent();
-  }
+  if(contextReturnMode){ contextReturnMode = false; if(totalScore >= 27){ go('sSafety'); } else { buildResult(); } }
+  else { showEndConsent(); }
 }
 
 function showEndConsent(){
   totalScore = scores.reduce((a,b) => a + (b||0), 0);
-  if(totalScore >= 27){
-    go('sSafety');
-  } else {
-    buildResult();
-  }
+  if(totalScore >= 27){ go('sSafety'); } else { buildResult(); }
 }
-
-
 
 function handleEndConsent(){
   totalScore = scores.reduce((a,b) => a + (b||0), 0);
   const contextAnswered = document.getElementById('sleep') && document.getElementById('sleep').value !== '';
-  if(consentChoice === 'C' && finalConsent !== 'C' && !contextAnswered){
-    contextReturnMode = true;
-    go(1);
-    showOptCBanner();
-    return;
-  }
-  if(totalScore >= 27){
-    go('sSafety');
-  } else {
-    buildResult();
-  }
+  if(consentChoice === 'C' && finalConsent !== 'C' && !contextAnswered){ contextReturnMode = true; go(1); showOptCBanner(); return; }
+  if(totalScore >= 27){ go('sSafety'); } else { buildResult(); }
 }
-
 
 function pickSafetyAck(){
   safetyAcked = !safetyAcked;
   const ack = document.getElementById('safetyAck');
   const box = document.getElementById('safetyAckBox');
   const btn = document.getElementById('safetyNextBtn');
-  if(safetyAcked){
-    ack.classList.add('picked');
-    box.textContent = '\u2713';
-    btn.disabled = false;
-  } else {
-    ack.classList.remove('picked');
-    box.textContent = '\u2713';
-    box.style.color = 'transparent';
-    btn.disabled = true;
-  }
+  if(safetyAcked){ ack.classList.add('picked'); box.textContent = '\u2713'; btn.disabled = false; }
+  else { ack.classList.remove('picked'); box.textContent = '\u2713'; box.style.color = 'transparent'; btn.disabled = true; }
 }
 
 function loadSaved(){
@@ -807,18 +687,12 @@ function loadSaved(){
     }
     const cc = localStorage.getItem(KCC);
     if(cc) consentChoice = cc;
-    if(ss && scores.some(s => s !== null)){
-      document.getElementById('retBanner').style.display = 'block';
-      document.getElementById('startBtn').textContent = 'Continue where I left off';
-    }
+    if(ss && scores.some(s => s !== null)){ document.getElementById('retBanner').style.display = 'block'; document.getElementById('startBtn').textContent = 'Continue where I left off'; }
   } catch(e){}
 }
 
 function saveSc(){
-  try{
-    localStorage.setItem(KS, JSON.stringify(scores));
-    localStorage.setItem(KQ, currentQ);
-  } catch(e){}
+  try{ localStorage.setItem(KS, JSON.stringify(scores)); localStorage.setItem(KQ, currentQ); } catch(e){}
 }
 
 function saveCtx(){
@@ -833,14 +707,10 @@ function saveCtx(){
 }
 
 function clearSaved(){
-  [KS,KQ,KC,KSC,KCC,KCF].forEach(k => {
-    try{ localStorage.removeItem(k); } catch(e){}
-  });
+  [KS,KQ,KC,KSC,KCC,KCF].forEach(k => { try{ localStorage.removeItem(k); } catch(e){} });
 }
 
-function confirmDeclaration(){
-  go(5);
-}
+function confirmDeclaration(){ go(5); }
 
 function check28DayGate(){
   try{
@@ -861,10 +731,7 @@ function check28DayGate(){
         'You can retake from <strong>' + dateStr + '</strong> - that is ' + daysLeft + ' days away.</p>' +
         '<p style="margin-top:0.6rem">If things have changed significantly and you need support now, please contact your GP or call Samaritans on <a href="tel:116123" style="color:var(--gold-dark)">116 123</a>.</p>';
       document.getElementById('startBtn').textContent = 'View my previous results';
-      document.getElementById('startBtn').onclick = function(){
-        totalScore = parseInt(lastScore) || 0;
-        buildResult();
-      };
+      document.getElementById('startBtn').onclick = function(){ totalScore = parseInt(lastScore) || 0; buildResult(); };
       return true;
     }
   } catch(e){}
@@ -895,9 +762,7 @@ function showQ(idx){
     const opts = document.querySelectorAll('#an'+idx+' .answer');
     if(opts[scores[idx]]) opts[scores[idx]].classList.add('picked');
     document.getElementById('qnb').disabled = false;
-  } else {
-    document.getElementById('qnb').disabled = true;
-  }
+  } else { document.getElementById('qnb').disabled = true; }
   const fl = document.getElementById('sflag');
   fl.style.display = (q.sensitive && scores[idx] !== null && scores[idx] >= 2) ? 'block' : 'none';
   document.getElementById('qbb').style.display = idx === 0 ? 'none' : 'inline-block';
@@ -922,18 +787,14 @@ function pickSupportQ(val, el){
   const resp = document.getElementById('supportQResponse');
   if(resp){
     resp.style.display = 'block';
-    if(val === 'yes'){
-      resp.textContent = 'That matters. When you are ready, talking to them about what you have been carrying could be the most important conversation you have today.';
-    } else {
-      resp.innerHTML = 'You are not alone, even if it feels that way right now. The Samaritans are available 24 hours on <a href="tel:116123" style="color:var(--gold-dark);font-weight:500;">116 123</a> - free, confidential, no pressure. They are there for exactly this moment.';
-    }
+    if(val === 'yes'){ resp.textContent = 'That matters. When you are ready, talking to them about what you have been carrying could be the most important conversation you have today.'; }
+    else { resp.innerHTML = 'You are not alone, even if it feels that way right now. The Samaritans are available 24 hours on <a href="tel:116123" style="color:var(--gold-dark);font-weight:500;">116 123</a> - free, confidential, no pressure. They are there for exactly this moment.'; }
   }
   try{ localStorage.setItem('p2bi-support-q', val); } catch(e){}
 }
 
 function nextQ(){
-  if(currentQ < 12){ currentQ++; saveSc(); showQ(currentQ); }
-  else showEndConsent();
+  if(currentQ < 12){ currentQ++; saveSc(); showQ(currentQ); } else showEndConsent();
 }
 function prevQ(){
   if(currentQ > 0){ currentQ--; saveSc(); showQ(currentQ); }
@@ -953,7 +814,6 @@ function buildResult(){
   document.getElementById('rBand').innerHTML =
     `<div class="result-card ${band.cls}"><h3>${band.h}</h3><p>${band.m}</p></div>` +
     `<div class="body-text" style="margin-top:0.5rem"><strong style="color:var(--text)">The honest version:</strong> ${band.o}</div>`;
-
   const sl = document.getElementById('sleep').value;
   const su = document.getElementById('support').value;
   const ho = document.getElementById('housing').value;
@@ -967,7 +827,6 @@ function buildResult(){
   document.getElementById('rFlags').innerHTML = flags.length > 0 ?
     `<div class="divider"></div><div class="label-tag">A few things we want you to know</div>` +
     flags.map(f => `<div class="flag-card"><p>${f}</p></div>`).join('') : '';
-
   let steps = '';
   if(band.cta === 'light'){
     steps = `<div class="divider"></div><div class="label-tag">What you might do next</div><div class="next-card"><h4>Keep paying attention to yourself</h4><p>The patterns that lead to paternal depression often build slowly and quietly. Knowing what to look for means you can catch them early - before they take hold.</p></div><div class="next-card"><h4>Free resources built specifically for new fathers</h4><p>Parents2Be International was built because these resources did not exist. Guides, support content, and tools for fathers and their partners - no waiting list, no system, no cost.</p></div>`;
@@ -980,33 +839,21 @@ function buildResult(){
   store28DayRecord();
   clearSaved();
   if(typeof gtag !== 'undefined') gtag('event','assessment_complete',{score:totalScore,band:band.cls});
-
   go(5);
   buildConsentReview();
 }
 
 function buildConsentReview(){
   var choice = finalConsent || consentChoice || 'C';
-  var labels = {
-    A: 'You chose to share your results with the person who referred you.',
-    B: 'You chose to keep your results anonymous.',
-    C: 'You chose to keep your results completely private.'
-  };
-
+  var labels = { A: 'You chose to share your results with the person who referred you.', B: 'You chose to keep your results anonymous.', C: 'You chose to keep your results completely private.' };
   var reviewText = document.getElementById('consentReviewText');
   var reviewOptions = document.getElementById('consentReviewOptions');
   var reviewFooter = document.getElementById('consentReviewFooter');
   var confirmBtn = document.getElementById('consentConfirmBtn');
-
   if(reviewText) reviewText.textContent = labels[choice] || labels.C;
-
   if(reviewOptions){
     var opts = ['A','B','C'];
-    var optLabels = {
-      A: 'Share my results with the person who referred me.',
-      B: 'Keep my results anonymous.',
-      C: 'Keep my results completely private. I understand only my completion will be recorded.'
-    };
+    var optLabels = { A: 'Share my results with the person who referred me.', B: 'Keep my results anonymous.', C: 'Keep my results completely private. I understand only my completion will be recorded.' };
     var html = '';
     opts.forEach(function(o){
       var picked = (o === choice) ? ' picked' : '';
@@ -1022,42 +869,26 @@ function buildConsentReview(){
       el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ pickReviewConsent(this.getAttribute('data-choice'), this); e.preventDefault(); } });
     });
   }
-
   if(reviewFooter){
-    if(choice === 'B' || choice === 'C'){
-      reviewFooter.textContent = 'I have seen my results and I am choosing to keep them private for now. I know this assessment will be here in 28 days to show me how I am progressing. I understand that any score indicating a clinical referral is my responsibility to act on.';
-    } else {
-      reviewFooter.textContent = 'Your results will be sent privately and securely to the person who referred you.';
-    }
+    if(choice === 'B' || choice === 'C'){ reviewFooter.textContent = 'I have seen my results and I am choosing to keep them private for now. I know this assessment will be here in 28 days to show me how I am progressing. I understand that any score indicating a clinical referral is my responsibility to act on.'; }
+    else { reviewFooter.textContent = 'Your results will be sent privately and securely to the person who referred you.'; }
   }
-
   if(confirmBtn) confirmBtn.style.display = 'block';
 }
 
-
 function pickReviewConsent(choice, el){
   finalConsent = choice;
-  document.querySelectorAll('#consentReviewOptions .consent-option').forEach(function(o){
-    o.classList.remove('picked');
-    o.setAttribute('aria-checked','false');
-  });
+  document.querySelectorAll('#consentReviewOptions .consent-option').forEach(function(o){ o.classList.remove('picked'); o.setAttribute('aria-checked','false'); });
   el.classList.add('picked');
   el.setAttribute('aria-checked','true');
   var refField = document.getElementById('endRefCodeField');
-  if(refField){
-    var wasOriginallyA = (consentChoice === 'A');
-    refField.style.display = (choice === 'A' && !wasOriginallyA) ? 'block' : 'none';
-  }
+  if(refField){ var wasOriginallyA = (consentChoice === 'A'); refField.style.display = (choice === 'A' && !wasOriginallyA) ? 'block' : 'none'; }
   var footer = document.getElementById('consentReviewFooter');
   if(footer){
-    if(choice === 'B' || choice === 'C'){
-      footer.textContent = 'I have seen my results and I am choosing to keep them private for now. I know this assessment will be here in 28 days to show me how I am progressing. I understand that any score indicating a clinical referral is my responsibility to act on.';
-    } else {
-      footer.textContent = 'Your results will be sent privately and securely to the person who referred you.';
-    }
+    if(choice === 'B' || choice === 'C'){ footer.textContent = 'I have seen my results and I am choosing to keep them private for now. I know this assessment will be here in 28 days to show me how I am progressing. I understand that any score indicating a clinical referral is my responsibility to act on.'; }
+    else { footer.textContent = 'Your results will be sent privately and securely to the person who referred you.'; }
   }
 }
-
 
 function finaliseConsent(){
   const choice = finalConsent || consentChoice || 'C';
@@ -1069,35 +900,19 @@ function finaliseConsent(){
   if(reviewOptions) reviewOptions.style.display = 'none';
   const footer = document.getElementById('consentReviewFooter');
   if(footer) footer.style.display = 'none';
-  if(typeof gtag !== 'undefined') gtag('event','consent_finalised',{
-    opening_choice: consentChoice,
-    final_choice: choice,
-    changed: choice !== consentChoice
-  });
+  if(typeof gtag !== 'undefined') gtag('event','consent_finalised',{ opening_choice: consentChoice, final_choice: choice, changed: choice !== consentChoice });
 }
 
 function submitEmail(){
   const email = document.getElementById('emailIn').value.trim();
-  if(!email || !email.includes('@')){
-    document.getElementById('emailIn').style.borderColor = '#C62828';
-    return;
-  }
+  if(!email || !email.includes('@')){ document.getElementById('emailIn').style.borderColor = '#C62828'; return; }
   fetch('https://connect.mailerlite.com/api/subscribers',{
     method:'POST',
-    headers:{
-      'Content-Type':'application/json',
-      'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiNDM1YzZjMTg0MDdkMmZiZGRiNDk1NzIwOGI1MThhZWM3NjBhNTFiOTVjZjEzNWY1NTY4MGIwZDdmZjc1MmQwNTBkMjM4ZDliYWVhN2FiZjEiLCJpYXQiOjE3ODA0Nzc3NjEuNjE4NzQzLCJuYmYiOjE3ODA0Nzc3NjEuNjE4NzQ2LCJleHAiOjQ5MzYxNTEzNjEuNjE1MDUyLCJzdWIiOiIyMTUxNDMzIiwic2NvcGVzIjpbXX0.tCyMa3UhnaRGoxPF_nQMER6tBY9zGhWIMOtk1mm-1W5bWBqFPVpCvX-ZBO9KYDGaskH9QPt9zJWzQv-6yBFXKKq1TAXX1ZiLnypStVX9vOFgeMKTFR94U5uD9-H6F_3a82hDEEaQWFjz_9YXbLbBA1MTb3HPNHJ4zINault1Ao1HH-fZx_hHr9YZpyj7WaQtZSvvLQ1n-fldM_2_aUcGWwDQPwL2pq4qt9Rgih15TI50U7It_2PSM6sFcFxpysiEEaQJX6fX5OVGTLs8oX6QdsLCEu1mm5-9XXB9R2gTlLR4Qtne0Ym8xta3VfisJc7uhxT7tJ-hngBRIHxZumfNW9OdFw5Q8VVCBc-x6ypqyu8GB21ZXXJANwjxgkiuIk-IckvsUmrt095EV_VcjEmBRjnszTPDMsyNp0VYSsZXeYGzy6vrXBSyO1RtvO39G0BXnTurrGf-5H9te12IbmA3podsNW3GrLUQVLiqgq-YTmtq7JPavoTsVic8Gqvff6Tfqhcvp1bkWqoTJxumW3mKW5vCBDHAyx0kFVbiY4yaNqMYyQgguRPO7cZDiFRY6r5PtQ96SgrgPoswMmP8TBkJvZCPiLd-Dw9Ta2b6nohVWC6F1_8Xi_Mx_JFO2VIj9kssEFSC8_u2Mo-GCUrJseq9tAU8b6iXVZP8aoj_EQnYUUU'
-    },
+    headers:{ 'Content-Type':'application/json', 'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiNDM1YzZjMTg0MDdkMmZiZGRiNDk1NzIwOGI1MThhZWM3NjBhNTFiOTVjZjEzNWY1NTY4MGIwZDdmZjc1MmQwNTBkMjM4ZDliYWVhN2FiZjEiLCJpYXQiOjE3ODA0Nzc3NjEuNjE4NzQzLCJuYmYiOjE3ODA0Nzc3NjEuNjE4NzQ2LCJleHAiOjQ5MzYxNTEzNjEuNjE1MDUyLCJzdWIiOiIyMTUxNDMzIiwic2NvcGVzIjpbXX0.tCyMa3UhnaRGoxPF_nQMER6tBY9zGhWIMOtk1mm-1W5bWBqFPVpCvX-ZBO9KYDGaskH9QPt9zJWzQv-6yBFXKKq1TAXX1ZiLnypStVX9vOFgeMKTFR94U5uD9-H6F_3a82hDEEaQWFjz_9YXbLbBA1MTb3HPNHJ4zINault1Ao1HH-fZx_hHr9YZpyj7WaQtZSvvLQ1n-fldM_2_aUcGWwDQPwL2pq4qt9Rgih15TI50U7It_2PSM6sFcFxpysiEEaQJX6fX5OVGTLs8oX6QdsLCEu1mm5-9XXB9R2gTlLR4Qtne0Ym8xta3VfisJc7uhxT7tJ-hngBRIHxZumfNW9OdFw5Q8VVCBc-x6ypqyu8GB21ZXXJANwjxgkiuIk-IckvsUmrt095EV_VcjEmBRjnszTPDMsyNp0VYSsZXeYGzy6vrXBSyO1RtvO39G0BXnTurrGf-5H9te12IbmA3podsNW3GrLUQVLiqgq-YTmtq7JPavoTsVic8Gqvff6Tfqhcvp1bkWqoTJxumW3mKW5vCBDHAyx0kFVbiY4yaNqMYyQgguRPO7cZDiFRY6r5PtQ96SgrgPoswMmP8TBkJvZCPiLd-Dw9Ta2b6nohVWC6F1_8Xi_Mx_JFO2VIj9kssEFSC8_u2Mo-GCUrJseq9tAU8b6iXVZP8aoj_EQnYUUU' },
     body: JSON.stringify({
       email: email,
       groups: ['183382900380534401'],
-      fields:{
-        assessment_score: totalScore,
-        assessment_band: getBand(totalScore).cls,
-        expectant: localStorage.getItem('p2bi-expectant') || '',
-        situation: document.getElementById('situation').value || '',
-        consent_type: finalConsent || 'C'
-      }
+      fields:{ assessment_score: totalScore, assessment_band: getBand(totalScore).cls, expectant: localStorage.getItem('p2bi-expectant') || '', situation: document.getElementById('situation').value || '', consent_type: finalConsent || 'C' }
     })
   })
   .then(() => showRes(true))
@@ -1109,9 +924,7 @@ function skipEmail(){ showRes(false); }
 function showRes(withEmail){
   document.getElementById('emailBlock').style.display = 'none';
   const band = getBand(totalScore);
-  const tkMsg = band.cta === 'urgent' ?
-    'Given what you have shared, this sits alongside your GP conversation as the most useful thing available to you right now.' :
-    'Built for exactly where you are. No jargon, no waiting list, no shame.';
+  const tkMsg = band.cta === 'urgent' ? 'Given what you have shared, this sits alongside your GP conversation as the most useful thing available to you right now.' : 'Built for exactly where you are. No jargon, no waiting list, no shame.';
   document.getElementById('rRes').style.display = 'block';
   document.getElementById('rRes').innerHTML =
     `<div class="divider"></div><div class="label-tag">Resources</div>` +
