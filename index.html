@@ -192,6 +192,15 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 22px; line-height: 1.25; 
   .bmark-inner { flex-wrap: wrap; }
 }
 </style>
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2132509');
+</script>
+<!-- End MailerLite Universal -->
 </head>
 <body>
 
@@ -906,17 +915,16 @@ function finaliseConsent(){
 function submitEmail(){
   const email = document.getElementById('emailIn').value.trim();
   if(!email || !email.includes('@')){ document.getElementById('emailIn').style.borderColor = '#C62828'; return; }
-  fetch('https://connect.mailerlite.com/api/subscribers',{
-    method:'POST',
-    headers:{ 'Content-Type':'application/json', 'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiM2UzMGRmZjZhMDJlOTFkNWZlYTg0MzkzMWVlMzgyNjg3MzFmMDc2ZGYwNzJkOTA2YjE5ZTExMzQ2NTU0OWY0MzEyZjY5NTQ4NjU3ZTgxNzciLCJpYXQiOjE3ODMwNzIwNzEuODYyNzMzLCJuYmYiOjE3ODMwNzIwNzEuODYyNzM3LCJleHAiOjQ5Mzg3NDU2NzEuODU0ODMsInN1YiI6IjIxNTE0MzMiLCJzY29wZXMiOltdfQ.KEWR9znd2RcgDgIqhEEAUEmNCDsk7ryI3SoM5M3NAxA5xYVvJJ2eIVoiIocYntFIArErjkQqFGI1Ny8GxQMmBqSFIp8F60-mPenmhy6ltSMoWL5b38Xose96CmWpOD1jcWgRy2Yldndy3Vwae6R_iYVvkSyX9DpxaCAW0fDxqiR9ZVADpebcN0_iM-82peZ3PXbNhCsMrJ374Tiw0hH5Ui9pAhHo-OxIdjGKUtbPGJKzfGP1CR50agv8RhSd9-kKtHaoQ-TBgQDkGP_7yyAPW0AFySCWWhSfnHUaoh7SXLr1WD-3lw0Et2RrsiRYUrcmhFmhli7cZDNtAJZ54FSQXcufNJCzt2TBSmwb3sE5ZvLrDLRnfzi2JCu8IJeo4NzgxoOYGgKarg8fUPCnEmoJQfEaEkVDX2pbvQ5YfF0DHjkId-50fpnKwP0hZfjEIFq9G3BP3OH5M4w2VrqRX4BBcCiwH6WeTxVvdviyYDQux0IJ96mvnUZp8pZk13YDxn-YQzwfpeM8tPSNivw5GWqQpbAJhpQ0ugFE8ElcDNPGp1qp5JFo3HK-BRkeOVpPf3DDTgzjiIwIFQlPVShGHavERmxbbeuptwzsMA2Glwu9Y3FhGVJ9pBLX1uA-d_kodj44YiQx4f82Ss7FcFE-mI3PcwCaZvbljvek0jF-QviuY_M' },
-    body: JSON.stringify({
-      email: email,
-      groups: ['183382900380534401'],
-      fields:{ assessment_score: totalScore, assessment_band: getBand(totalScore).cls, expectant: localStorage.getItem('p2bi-expectant') || '', situation: document.getElementById('situation').value || '', consent_type: finalConsent || 'C' }
-    })
-  })
-  .then(() => showRes(true))
-  .catch(() => showRes(true));
+  const form = document.getElementById('mlHiddenForm');
+  form.querySelector('input[name="fields[email]"]').value = email;
+  form.querySelector('input[name="fields[assessment_score]"]').value = totalScore;
+  form.querySelector('input[name="fields[assessment_band]"]').value = getBand(totalScore).cls;
+  form.querySelector('input[name="fields[consent_type]"]').value = finalConsent || 'C';
+  form.querySelector('input[name="fields[situation]"]').value = document.getElementById('situation').value || '';
+  form.querySelector('input[name="fields[expectant]"]').value = localStorage.getItem('p2bi-expectant') || '';
+  fetch(form.action, { method:'POST', body: new FormData(form) })
+    .then(() => showRes(true))
+    .catch(() => showRes(true));
 }
 
 function skipEmail(){ showRes(false); }
@@ -941,5 +949,16 @@ function showRes(withEmail){
 loadSaved();
 check28DayGate();
 </script>
+
+<!-- Hidden MailerLite form - no API key, submits securely server-side -->
+<form id="mlHiddenForm" action="https://assets.mailerlite.com/jsonp/2132509/forms/naEpWG/subscribe" method="POST" style="display:none;" aria-hidden="true">
+  <input type="hidden" name="fields[email]" value="">
+  <input type="hidden" name="fields[assessment_score]" value="">
+  <input type="hidden" name="fields[assessment_band]" value="">
+  <input type="hidden" name="fields[consent_type]" value="">
+  <input type="hidden" name="fields[situation]" value="">
+  <input type="hidden" name="fields[expectant]" value="">
+  <input type="hidden" name="ml-submit" value="1">
+</form>
 </body>
 </html>
